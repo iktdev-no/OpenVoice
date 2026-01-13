@@ -33,7 +33,6 @@ RUN apt-get update && apt-get install -y \
 # ---- Copy PyAV + FFmpeg libs from conda ----
 COPY --from=builder /opt/conda/envs/build-env/lib/python3.10/site-packages /usr/local/lib/python3.10/site-packages
 COPY --from=builder /opt/conda/envs/build-env/lib/*.so* /usr/local/lib/
-COPY --from=builder /opt/conda/envs/build-env/lib/ffmpeg /usr/local/lib/ffmpeg
 
 ENV LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
